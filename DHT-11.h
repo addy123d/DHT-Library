@@ -52,18 +52,24 @@ static const uint8_t AM2301{21}; /*AM2301*/
 /*
  * Class which will have all methods, and all data which will store and sensor definition
  */
-
 class DHT{
 
 	public:
-		DHT(uint8_t pin, uint8_t type); /*@desc: store information about digital pin and type of sensor*/
-		void init(uint8_t pulltime_in_usec = 55, bool test=false, uint8_t alert_pin=13); /*@desc: Initialise with pull time, time taken by DHT to pull up the data line.*/
-		void sensor_test(bool test=false, uint8_t alert_pin=13);
-		float getTemperature(bool fahrenheit = false, bool force = false);
-	        float getKelvin_temperature();	
-		float getHumidity(bool force = false);
-		bool read_sensor(bool force = false);
+		DHT(uint8_t pin, uint8_t type);
+		void init(uint8_t pulltime_in_usec = 55, bool test=false, uint8_t alert_pin=13);
 
+		void sensor_test(bool test=false, uint8_t alert_pin=13);
+		void indicator(uint8_t alert_pin, int notification_count);
+
+		float getTemperature(bool fahrenheit = false, bool force = false);
+	    float getKelvin_temperature();	
+		float getHumidity(bool force = false);
+
+		float heatIndex(float temperature, float humidity, bool isFahrenheit=true);
+		double dewPoint();
+
+		bool read_sensor(bool force = false);
+                
 
 	private:
 		/*
@@ -91,7 +97,6 @@ class DHT{
 		 * @param level: HIGH or LOW, as per pulse
 		 */
 		uint32_t read_pulse(bool level);
-	        	
 
 };
 
