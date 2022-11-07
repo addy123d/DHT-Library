@@ -1,6 +1,4 @@
-/*
- * DHT Library
- */
+
 
 /*
  * The MIT License (MIT)
@@ -113,6 +111,7 @@ void DHT::sensor_test(bool test, uint8_t alert_pin)
   String temp_in_C = "Temperature in Celsius: ";
   temp_in_C += tempIn_Celsius;
   temp_in_C += " C";
+  
   String temp_in_Kelvin = "Temperature in Kelvin: ";
   temp_in_Kelvin += tempIn_Kelvin;
   temp_in_Kelvin += " K";
@@ -174,6 +173,7 @@ float DHT::getTemperature(bool fahrenheit, bool force)
   delay(2000); //@update : @addy123d
 
   float f = NAN;
+  
   if (read_sensor(force))
   {
 
