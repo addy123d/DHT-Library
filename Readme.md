@@ -1,13 +1,7 @@
 # DHT Sensors Official Documentation
 
-Created: November 7, 2022 11:51 AM
-Last Edited Time: November 7, 2022 1:22 PM
-Status: Completed 🏁
-Type: One Pager
 
-# DHT Library
-
-[https://imgs.search.brave.com/62Vm-mzxF_idYMQS96xqbPc3STuwOq8PMQ_dAAw1I04/rs:fit:1000:750:1/g:ce/aHR0cHM6Ly93d3cu/bWFrZXJmYWJzLmNv/bS9pbWFnZS9jYWNo/ZS9tYWtlcmZhYnMv/REhUMTElMjBUZW1w/ZXJhdHVyZSUyMEh1/bWlkaXR5JTIwTW9k/dWxlL0RIVDExJTIw/VGVtcGVyYXR1cmUl/MjBIdW1pZGl0eSUy/ME1vZHVsZS0xMDAw/eDc1MC5KUEc](https://imgs.search.brave.com/62Vm-mzxF_idYMQS96xqbPc3STuwOq8PMQ_dAAw1I04/rs:fit:1000:750:1/g:ce/aHR0cHM6Ly93d3cu/bWFrZXJmYWJzLmNv/bS9pbWFnZS9jYWNo/ZS9tYWtlcmZhYnMv/REhUMTElMjBUZW1w/ZXJhdHVyZSUyMEh1/bWlkaXR5JTIwTW9k/dWxlL0RIVDExJTIw/VGVtcGVyYXR1cmUl/MjBIdW1pZGl0eSUy/ME1vZHVsZS0xMDAw/eDc1MC5KUEc)
+![https://nskelectronics.in/image/cache/catalog/SENSORS/TEMP/dht11-500x500.jpg](https://nskelectronics.in/image/cache/catalog/SENSORS/TEMP/dht11-500x500.jpg)
 
 ## Description
 
@@ -18,7 +12,7 @@ Arduino Library for DHT sensors.
 ## 🌡️ Get Temperature and Humidity Values
 
 ```arduino
-#include "DHT-11.h"
+#include "DHT.h"
 
 #define DHTPIN 2     // Digital pin connected to the DHT sensor
 
@@ -67,7 +61,7 @@ void loop(){
 ## 🥵 Get Dew Point and Heat Index Values:
 
 ```arduino
-#include "DHT-11.h"
+#include "DHT.h"
 
 #define DHTPIN 2     // Digital pin connected to the DHT sensor
 
@@ -107,7 +101,7 @@ void loop(){
 ## 🧪 Sensor Test Code with 3 Blink Indication
 
 ```arduino
-#include "DHT-11.h"
+#include "DHT.h"
 
 #define DHTPIN 2     // Digital pin connected to the DHT sensor
 
