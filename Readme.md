@@ -4,7 +4,6 @@
 ![https://nskelectronics.in/image/cache/catalog/SENSORS/TEMP/dht11-500x500.jpg](https://nskelectronics.in/image/cache/catalog/SENSORS/TEMP/dht11-500x500.jpg)
 
 ## Description
-
 Arduino Library for DHT sensors.
 
 # Example
