@@ -122,7 +122,7 @@ void loop(){}
 
 ## ❌ 3 Blink Indication
 
-[Sensor is not working.mp4](DHT%20Sensors%20Official%20Documentation%2037f201ef8aae49f99ad52dc9482888b7/Sensor_is_not_working.mp4)
+![](https://github.com/addy123d/DHT-Sensors/blob/main/assets/sensor_test.gif)
 
 <aside>
 🔴 Support for DHT-21 is not added.
