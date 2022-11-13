@@ -1,4 +1,6 @@
-
+/*
+ * DHT Library
+ */
 
 /*
  * The MIT License (MIT)
@@ -19,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE
  */
 
-#include "DHT.h"
+#include "DHT-11.h"
 
 #define MIN_INTERVAL 2000  /**< min interval value */
 #define TIMEOUT UINT32_MAX /**< Used programmatically for timeout. Not a timeout duration. Type: uint32_t. */
@@ -57,7 +59,7 @@ DHT::DHT(uint8_t pin, uint8_t type)
  *          3. alert_pin, By Default, alert_pin = 13
  *          Pin will be HIGH when sensor is not working and viceversa.
  */
-void DHT::init(uint8_t micro_seconds = 55, bool test, uint8_t alert_pin)
+void DHT::init(uint8_t micro_seconds, bool test, uint8_t alert_pin)
 {
   // set up the pin.
   pinMode(_pin, INPUT_PULLUP);
@@ -92,6 +94,7 @@ void DHT::sensor_test(bool test, uint8_t alert_pin)
   float tempIn_fahrenheit = getTemperature(true);
   float tempIn_Celsius = getTemperature();
   float tempIn_Kelvin = getKelvin_temperature();
+   float humidity = getHumidity();
 
   if (isnan(tempIn_fahrenheit) || isnan(tempIn_Celsius) || isnan(tempIn_Kelvin))
   {
@@ -102,8 +105,6 @@ void DHT::sensor_test(bool test, uint8_t alert_pin)
     return;
   }
 
-  float humidity = getHumidity();
-
   String temp_in_F = "Temperature in Fahrenheit: ";
   temp_in_F += tempIn_fahrenheit;
   temp_in_F += " F";
@@ -111,7 +112,6 @@ void DHT::sensor_test(bool test, uint8_t alert_pin)
   String temp_in_C = "Temperature in Celsius: ";
   temp_in_C += tempIn_Celsius;
   temp_in_C += " C";
-  
   String temp_in_Kelvin = "Temperature in Kelvin: ";
   temp_in_Kelvin += tempIn_Kelvin;
   temp_in_Kelvin += " K";
@@ -173,7 +173,6 @@ float DHT::getTemperature(bool fahrenheit, bool force)
   delay(2000); //@update : @addy123d
 
   float f = NAN;
-  
   if (read_sensor(force))
   {
 
@@ -307,14 +306,17 @@ double DHT::dewPoint()
 
   double A0 = Tk / (T0 + temperature);
 
-  double SUM = -7.90298 * (A0 - 1) +
-               5.02808 * log10(A0) +
-               -1.3816e-7 * (pow(10, (11.344 * (1 - 1 / A0))) - 1) +
-               8.1328e-3 * (pow(10, (-3.49149 * (A0 - 1))) - 1) +
-               log10(1013.246);
+
+  double SUM = -7.90298 * (A0 - 1) + 
+         5.02808 * log10(A0) + 
+         -1.3816e-7 * (pow(10, (11.344 * (1 - 1 / A0))) - 1) +
+         8.1328e-3 * (pow(10, (-3.49149 * (A0 - 1))) - 1) +
+         log10(1013.246);
+
 
   double VP = pow(10, SUM - 3) * humidity;
   double T = log(VP / 0.61078); // temp var
+
 
   return (241.88 * T) / (17.558 - T);
 }
