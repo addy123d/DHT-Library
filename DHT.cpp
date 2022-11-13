@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE
  */
 
-#include "DHT-11.h"
+#include "DHT.h"
 
 #define MIN_INTERVAL 2000  /**< min interval value */
 #define TIMEOUT UINT32_MAX /**< Used programmatically for timeout. Not a timeout duration. Type: uint32_t. */
